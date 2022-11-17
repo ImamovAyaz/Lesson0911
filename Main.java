@@ -1,7 +1,13 @@
 // Todo: think about how to add Track, Jeep
 
+import javax.sound.midi.Soundbank;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
 
@@ -96,12 +102,57 @@ public class Main {
 
 
     public static void main(String[] args){
-        for (Drive engine : getEngines()){
-            engine.driveOn();
+
+        int myData = 12345;
+        Integer myAlternativeData = 12345;
+
+        Integer result = myData + myAlternativeData + 12345;
+
+        ArrayList<Integer> example = new ArrayList<>();
+
+        try {
+            for (Drive engine : getEngines()){
+                engine.driveOn();
+            }
+
+
+            for (Drive engine : getEngines()){
+                engine.driveOff();
+            }
+            throw new SQLException("SQL CODE..");
+
+        }
+        catch (IllegalAccessError ex) {
+            // Some code
+            System.out.println(ex.getMessage());
+        } catch (Exception ex){
+            // Some code
+            System.out.println(ex.getMessage());
+        }
+        finally {
+            // Some code
+        }
+        for (Drive drive: getEngines()){
+            drive.driveOn();
+
+            int hash = drive.hashCode();
+            System.out.println(hash);
         }
 
-        for (Drive engine : getEngines()){
-            engine.driveOff();
+        for (Drive drive: getEngines()){
+
+            HashMap<String,String> hashMap = new HashMap<>();
+            hashMap.put(drive.toString(),drive.toString());
+            System.out.println(hashMap);
         }
+
+        HashSet<String> wonderWorld2022 = new HashSet<>();
+        wonderWorld2022.add("Yellowstone National Park");
+        wonderWorld2022.add("Galapagos Islands");
+        wonderWorld2022.add("The Forbidden City");
+        wonderWorld2022.add("Antarctica");
+        wonderWorld2022.add("The Great Alley of Sphinxes");
+        wonderWorld2022.add("Northern lights");
+        wonderWorld2022.add("Colosseum");
     }
 }
