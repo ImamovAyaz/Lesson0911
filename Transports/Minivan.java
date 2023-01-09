@@ -1,4 +1,6 @@
-public class Minivan extends Car{
+package Transports;
+
+public class Minivan extends Car {
 
     @Override
     public void driveOn() {
